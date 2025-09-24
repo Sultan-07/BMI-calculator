@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align: center; background-color:rgb(124, 255, 255);">
+        <div>
+            <h3>Weight</h3>
+            <input type="text" id="weight-input">
+        </div>
+
+        <div>
+            <h3>Height</h3>
+            <input type="text" id="height-input">
+        </div>
+
+        <button id="submit-btn">Calculate</button>
+
+        <div>
+            <h4 id="bmi"></h4>
+            <h3 id="bmi-category"></h3>
+        </div>
+    </div>
+</body>
+
+<script>
+   document.getElementById("submit-btn").addEventListener("click", function(){
+       var weight = document.getElementById("weight-input").value 
+       var height = document.getElementById("height-input").value
+
+       var bmi = weight/(height*height)
+      
+       document.getElementById("bmi").innerHTML = bmi
+
+       if (bmi < 18) {
+        document.getElementById("bmi-category").innerHTML = "Skinny"
+       }else if (bmi >=18 && bmi < 24.9) {
+       document.getElementById("bmi-category").innerHTML = "Perfect weight"
+       }else if (bmi < 29.9) {
+       document.getElementById("bmi-category").innerHTML = "Over weight"
+       }else if (bmi < 34.9) {
+       document.getElementById("bmi-category").innerHTML = "Obesity level 1"
+       }else if (bmi > 39.9) {
+       document.getElementById("bmi-category").innerHTML = "Obesity level 2"
+       }else{
+       document.getElementById("bmi-category").innerHTML = "Dangerous obesity"
+       }
+   })
+</script>
+
+</html>
